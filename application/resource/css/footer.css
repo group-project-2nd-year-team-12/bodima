@@ -1,0 +1,24 @@
+.footer {
+    background-color: black;
+    height: 300px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.grid-containers{
+    display: grid;
+    color: white;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+.copyright h2 {
+    text-align: center;
+    width: 100%;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.grid-items h3{
+    color: rgb(22, 255, 1);
+}

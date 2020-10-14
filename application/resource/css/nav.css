@@ -1,0 +1,96 @@
+
+.header {
+    border-top: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    padding: 0 40px 0 300px;
+    background-color: #379683;
+}
+
+.sign{
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    border-radius: 5px;
+    transition: 0.5s all ease-in;
+    background-color:  rgb(21, 139, 44);
+}
+.sign:hover{
+    background-color: rgb(31, 178, 60);
+}
+
+.sign a:hover{
+    color: white;
+}
+
+
+.sign img{
+    height: 35px;
+    width: 20px;
+}
+
+.nav_bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav_item{
+    width: 100%;
+    margin: 0 10px 0 10px;
+    text-align: center;
+    transition: 0.5s all ease-in;
+    border-bottom: 2px solid  #379683;
+}
+.nav_item:hover{
+    color: rgb(22, 255, 1);
+    border-bottom: 2px solid rgb(31, 178, 60);
+}
+.nav_item a:hover{
+    color: rgb(22, 255, 1);
+}
+
+.nav_item a:active, .nav_item a:focus{
+    color: rgb(22, 255, 1);
+}
+
+a {
+    text-decoration: none;
+    color: #05386b;
+    font-weight: bold;
+    transition: 0.5s ease-in;
+}
+
+li {
+    padding: 10px;
+    list-style: none;
+}
+.profile{
+    color: rgb(207, 187, 4);
+}
+.user{
+    padding-right: 10px;
+    color: rgb(255, 255, 255);
+    padding-left: 5px;
+   color:  rgb(207, 187, 4)
+}
+
+.notification{
+    color: white;
+    padding-right:15px ;
+}
+
+.drop{
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
