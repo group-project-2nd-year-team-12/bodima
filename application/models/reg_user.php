@@ -1,24 +1,75 @@
 <?php 
 
 class reg_user{
+    // student registration 
+    public static function studentReg($email,$first_name,$last_name,$nic,$password,$token,$connection)
+    {
+        $query="INSERT INTO student (email,first_name,last_name,nic,password,token) VALUES('{$email}','{$first_name}','{$last_name}','{$nic}','{$password}','{$token}')";
+        mysqli_query($connection,$query);
+    }
+
+    public static function userReg($email,$first_name,$last_name,$nic,$password,$token,$level,$address,$link,$connection)
+    {
+        $query="INSERT INTO $level (email,first_name,last_name,NIC,password,token,address,location_link) VALUES('{$email}','{$first_name}','{$last_name}','{$nic}','{$password}','{$token}','{$address}','{$link}')";
+        mysqli_query($connection,$query);
+    }
+
+
+
+    // check the email email already used
+    public static function checkUser($email,$connection)
+    {
+        $query="SELECT email FROM student  WHERE email='{$email}'
+         UNION SELECT email FROM boardings_owner  WHERE email='{$email}'
+         UNION SELECT email FROM food_supplier  WHERE email='{$email}'
+         UNiON SELECT email FROM boarder  WHERE email='{$email}' LIMIT 1";
+         $result_set=mysqli_query($connection,$query);
+         return  $result_set;
+    }
+
+    // user accept
+    public static function setApt($email,$level,$newtoken,$connection)
+    {
+        $query="UPDATE $level SET user_accepted=1,token='{$newtoken}' WHERE email='{$email}' ";
+        $result_set=mysqli_query($connection,$query);
+        return $result_set;
+        //return $result_set;
+    }
+
 
     public static function loging($email,$password,$connection)
     {
-        
         $query="SELECT level,email,first_name,last_name,address FROM  boarder WHERE email='$email' AND password='$password' 
-        UNION SELECT level,email,first_name,last_name,address FROM  boardings_owner WHERE email='$email' AND password='$password'
-       UNION SELECT level,email,first_name,last_name,address FROM administrator  WHERE email='$email' AND password='$password'
-       UNION SELECT level,email,first_name,last_name,address FROM food_supplier  WHERE email='$email' AND password='$password'
-                 LIMIT 1 ";
+        UNION SELECT level,email,first_name,last_name,address FROM  boardings_owner WHERE email='$email' AND password='$password'AND user_accepted=1
+        UNION SELECT level,email,first_name,last_name,address FROM administrator  WHERE email='$email' AND password='$password'  
+        UNION SELECT level,email,first_name,last_name,address FROM food_supplier  WHERE email='$email' AND password='$password'AND user_accepted=1 
+        UNION SELECT level,email,first_name,last_name,address FROM student  WHERE email='$email' AND password='$password' AND user_accepted=1
+        LIMIT 1 ";
         $result_set=mysqli_query($connection,$query);
-                 return  $result_set;
+        return  $result_set;
     }
+
+     public static function getId($level, $email,$connection)
+     {
+       $query="SELECT * FROM $level WHERE email='{$email}'";
+       $result_set=mysqli_query($connection,$query);
+       return  $result_set;
+     }
+
+
+     public static function getUser($level,$token, $email,$connection)
+     {
+     $query="SELECT * FROM $level WHERE email='{$email}' AND token='{$token}'";
+       $result_set=mysqli_query($connection,$query);
+       return  $result_set;
+     }
     
 
     public function forgotPassword($email,$connection)
     {
         $query="SELECT token,email FROM  boarder WHERE email='$email'  
         UNION SELECT token,email FROM  boardings_owner WHERE email='$email'  
+        UNION SELECT token,email FROM  student WHERE email='$email'
         UNION SELECT token,email FROM  food_supplier WHERE email='$email'
                  LIMIT 1 ";
         $result_set=mysqli_query($connection,$query);
@@ -30,6 +81,7 @@ class reg_user{
         $query="SELECT email,level FROM boarder WHERE token='{$token}' 
         UNION SELECT email,level FROM boardings_owner WHERE token='{$token}'
         UNION SELECT email,level FROM food_supplier WHERE token='{$token}'
+        UNION SELECT email,level FROM student WHERE token='{$token}'
          LIMIT 1";
         $result_set=mysqli_query($connection,$query);
         return $result_set; 

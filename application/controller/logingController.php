@@ -36,12 +36,14 @@
                //$user=new reg_user();
 
                $result=reg_user::loging($useremail,$hash,$connection);
-            
+               print_r($result);
+               echo "bdhjbhbds";
           //prepare database query
         
           
           if($result)
           {
+                  print_r($result);
             //query successful
             //check if the user is valid
             if(mysqli_num_rows($result)==1)
@@ -52,30 +54,31 @@
                 $_SESSION['first_name']=$record['first_name'];
                 $_SESSION['last_name']=$record['last_name'];
                 $_SESSION['address']=$record['address'];
+                $ID=reg_user::getId($record['level'],$record['email'],$connection);
+                $user_id=mysqli_fetch_assoc($ID);
                 if($record['level']=="boarder")
                 {
-                        $_SESSION['B_id']=$record['B_id'];
-                        
+                        $_SESSION['Bid']=$user_id['Bid'];
                         header('Location:../index.php');
                 }
                 elseif($record['level']=="admin")
                 {
-                        $_SESSION['a_id']=$record['a_id'];
-                        header('Location:../views/adminPanel.php');
+                        $_SESSION['a_id']=$user_id['a_id'];
+                        header('Location:../index.php');
                 }
-                elseif($record['level']=="reg_user")
+                elseif($record['level']=="student")
                 {
-                       $_SESSION['reg_id']=$record['reg_id'];
+                       $_SESSION['Reg_id']=$user_id['Reg_id'];
                        header('Location:../index.php');
                 }
                 elseif($record['level']=="boardings_owner")
                 {
-                        $_SESSION['BO_id']=$record['BO_id'];
+                        $_SESSION['BOid']=$user_id['BOid'];
                         header('Location:../index.php');
                 }
                 elseif($record['level']=="food_supplier") 
                 {
-                       $_SESSION['f_id']=$record['f_id'];
+                       $_SESSION['FSid']=$user_id['FSid'];
                        header('Location:../index.php');
                 }
 
@@ -85,12 +88,13 @@
                 header('Location:../views/user_loging.php?errors='.'errors');
             }
 
-          }else{
+          }
+          else{
                 header('Location:../views/user_loging.php?errors='.'errors');
           }
                 
         } else{
                 header('Location:../views/user_loging.php?errors='.'errors');
         }    
-        }	
+}	
 ?>

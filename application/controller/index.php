@@ -29,4 +29,6 @@ if(isset($_GET['tokenPassword']))
 {
     header('Location:../views/user_forgot_password.php');
 }
+
+
 ?>

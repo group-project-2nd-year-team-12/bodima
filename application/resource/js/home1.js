@@ -66,9 +66,26 @@ function scrollimg3(){
     }
 
 }
+function fixedTop(){
+   var height=$('.header').height();
+   $(window).scroll(function(){
+       if($(this).scrollTop()> height){
+        $('.nav').addClass('nav-fixed');
+
+       }else{
+        $('.nav').removeClass('nav-fixed');
+        // console.log(height);
+       }
+   });
+}
+
+
+window.addEventListener('scroll',fixedTop);
 window.addEventListener('scroll',scrollApper2);
 window.addEventListener('scroll',scrollApper1);
 window.addEventListener('scroll',scrollApper3);
 window.addEventListener('scroll',scrollimg2);
 window.addEventListener('scroll',scrollimg1);
 window.addEventListener('scroll',scrollimg3);
+
+

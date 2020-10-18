@@ -31,7 +31,10 @@
 <?php 
 
 
-  $fpid=$_GET['id'];
+  if(isset($_GET['id']))
+  {
+    $fpid=$_GET['id'];
+  }
   //echo $fpid;
   //$result=reg_user::getProduct($connection);
   $result=reg_user::getProductsByPostid($fpid,$connection);
@@ -61,9 +64,12 @@
 <?php 
     }
   }
+
  ?>
   </div> 
 <?php include 'footer.php'?>
 <script src="../resource/js/cart.js"></script>
+<script src="../resource/js/home1.js"></script>
+<script src="../resource/js/jquery.js"></script>
 </body>
 </html> 

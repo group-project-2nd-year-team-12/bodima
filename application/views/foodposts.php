@@ -18,7 +18,7 @@ $FoodPostController = new FoodPostController();
 
 //Output page data
 $title = 'Food Posts';
-//$content = $BoardingPostController->CreateCategoryDropdownList(). $BoardingPostTables;
+// $content = $BoardingPostController->CreateCategoryDropdownList(). $BoardingPostTables;
 $content =$FoodPostController->CreateFoodPostTables('%');
 include 'Template.php';
 

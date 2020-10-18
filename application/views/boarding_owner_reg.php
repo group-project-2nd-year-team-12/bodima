@@ -6,10 +6,14 @@
 	<title>Registration Form</title>
 	
 </head>
-<body>
+<body class="body2">
+	<div class="container">
+	<div class="para">
+			<h1><b>U</b>ser <b>R</b>egistration</h1>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga doloremque sunt nam ipsam nihil quo quidem asperiores quisquam pariatur expedita ducimus, voluptatem nisi, dignissimos recusandae. </p>
+	</div>
 	<div class="register">
-	<!--<img src="img/new1.png" class="registerProfile">-->
-	   <h1>Registration Form</h1>
+	
 	   <?php
 	   if(isset($_GET['param']))
 	   {
@@ -22,22 +26,32 @@
 	 
 	 ?>
 		   <form action="../controller/registerCon.php" method="post">
-		   	<p>First Name</p>
-		   	<input type="text" name="firstName" placeholder="Enter First Name">
+		   	<p>Address</p>
+		   	<input type="text" name="address" placeholder="Enter Address Name">
 
-		   	<p>Last Name</p>
-		   	<input type="text" name="lastName" placeholder="Enter Last Name">
-
-            <p>NIC</p>
-		   	<input type="text" name="nic" placeholder="Enter NIC">
-
-		   	<p>Email Address</p>
-		   	<input type="email" name="email" placeholder="Enter Email Address">
-		   	<p>Are you?</p>
-		   	
-		   	<input type="submit" name="submit" value="Next">
+		   	<p>Location link</p>
+			<input type="text" name="link" placeholder="Enter Location Name">
+			   
+			<p>Password</p>
+		   	<input type="password" name="password" placeholder="Enter Password">
+		   	<p>Confirm Password</p>
+		   	<input type="password" name="confirmpassword" placeholder="Confirm Password">
+		   	<div class="agreement">
+                     <div class="term"><b>Term and condition</b></div> 
+					<textarea name="aggrement" id="1" cols="30" rows="5">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio repudiandae eveniet aut, quia ea labore,                                            2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio repudiandae eveniet aut, quia ea labore, quis
+					</textarea>
+            </div>
+                            
+            <div class="check">
+                 <input id="check"  type="checkbox" name="check">
+                 <div class="agree"> I am agree with term and condition</div> 
+                 
+            </div>
+		   
+		   	<input id="register" type="submit" name="register" value="Register">
 		   </form>
 	</div>
-
+	</div>
+	<script src="../resource/js/main.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
                  <!-- button disable and enable function -->
 <script>  function disBtn()
                     {
-                    document.addEventListener("DOMContentLoaded", function(event) {
+                        document.addEventListener("DOMContentLoaded", function(event) {
                         document.querySelector(".btn3").disabled = true;
                         document.querySelector(".btn5").disabled = true;
                         document.querySelector('.btn3').style.backgroundColor="gray";
@@ -192,5 +192,7 @@ $total=0;
     </div>
     <?php include 'footer.php'?>
         <script src="../resource/js/cart1.js"></script>
+        <script src="../resource/js/home1.js"></script>
+<script src="../resource/js/jquery.js"></script>
 </body>
 </html> 

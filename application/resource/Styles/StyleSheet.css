@@ -15,17 +15,6 @@
 html {
   font-family: "Lucida Sans", sans-serif;
 }
-/*********   header **************************/
-/* .header {
-  background-color: #066efd;
-  color: #ffffff;
-  padding: 10px;
-} */
-
-/*.user_signin_login{
-
-     float: right;
-}*/
 .header_title{
   display: table-cell;
   padding-right:700px;
