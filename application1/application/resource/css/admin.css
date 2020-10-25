@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+body{
+    min-height: 100vh;
+    background-color: rgb(64, 61, 70);
+}
+a{
+    text-decoration: none;
+}
+.header{
+    background-color: rgb(31, 31, 33);
+    padding: 5px 0;
+    width: 100%;
+    align-items: center;
+}
+.nav{
+    display: block;
+    width: 240px;
+    background-color: rgb(37, 36, 40);
+    color: white;
+    height: 100vh;
+    /* padding: 10px 0; */
+}
+.nav ul li{
+    padding: 10px;
+    transition: 0.5s;
+}
+.nav ul a{
+    color: rgb(184, 184, 184);
+    transition: 0.5s;
+}
+
+.nav ul li:hover{
+    background-color:rgb(53, 51, 58) ;
+    color: white;
+}
+.nav ul li i{
+    float: right;
+}
+.nav h2{
+    padding: 10px ;
+    text-align: center;
+    border-bottom: 1px solid rgb(84, 80, 80) ;
+    font-size: 20px;
+}
+.logo{
+    margin-left: 60px;
+    /* border-bottom: 1px solid rgb(84, 80, 80) ; */
+}
+.logo img{
+    height: 50px;
+    /* width: 80px; */
+}
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgb(84, 80, 80);
+    padding: 10px ;
+}
+.name h3{
+    font-size:  14px;
+    font-weight: lighter;
+}
+
+.name img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.item{
+    position: absolute;
+    display: flex;
+    width: 220px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgb(33, 33, 35);
+    opacity: 0;
+    z-index: -1;
+    transform:translateY(-20px) ;
+    transition: 0.2s ;
+}
+.item-active{
+    position: relative;
+    display: flex;
+    width: 220px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-size: 12px;
+    transform:translateY(0px) ;
+    background-color: rgb(33, 33, 35);
+    transition: 0.2s ;
+    opacity: 1;
+    z-index: 1;
+}
+
+.item a{
+    width: 100%;
+    padding: 5px;
+}
+
+.item a:hover{
+    background-color: rgb(47, 47, 52);
+    color: white;
+}
+.item a i{
+    float: right;
+}
+
+.wrapper{
+    display: flex;
+}
+
+/* .content{
+    margin: 30px;
+    background-color: rgb(104, 104, 104);
+    width: 100%;
+} */
+/* .table table tr{
+    width: 1000px;
+    padding: 5px;
+} */
+
+.table table{
+    background-color: rgb(199, 199, 205);
+    width: 100%;
+    margin: 10px;
+}
+
+.table table tr th,td{
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid gray;
+    min-width: 100px;
+    
+}
+.table table tr th{
+    color: blue;
+}
