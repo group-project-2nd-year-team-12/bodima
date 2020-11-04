@@ -39,6 +39,11 @@ class Boarding_post_Entity
     $this->lifespan      = $lifespan;
     $this->post_amount   = $post_amount;
     $this->review        = $review;
+        
+        // changed
+        
+        
+        
     }
 
 }
